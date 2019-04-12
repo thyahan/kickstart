@@ -10,7 +10,8 @@ const renderRoute = routes => {
       key={route.path}
       path={route.path}
       component={route.component}
-      exact={route.exact} />
+      exact={route.exact}
+    />
   ));
 };
 
@@ -18,24 +19,22 @@ const Router = ({ hashRouter }) => {
   if (hashRouter) {
     return (
       <HashRouter>
-        <Switch>
-          {renderRoute(config)}
-        </Switch>
-      </HashRouter>);
+        <Switch>{renderRoute(config)}</Switch>
+      </HashRouter>
+    );
   }
   return (
     <BrowserRouter>
-      <Switch>
-        {renderRoute(config)}
-      </Switch>
-    </BrowserRouter>);
+      <Switch>{renderRoute(config)}</Switch>
+    </BrowserRouter>
+  );
 };
 
-Route.propTypes = {
+Router.propTypes = {
   hashRouter: PropType.bool
 };
 
-Route.defaultProps = {
+Router.defaultProps = {
   hashRouter: false
 };
 

@@ -3,16 +3,16 @@ import PageNotFound from '../pages/PageNotFound';
 
 export default [
   {
-    path: "/",
+    path: '/',
     component: Home,
     exact: true
   },
   {
-    path: "/home",
+    path: '/home',
     component: Home
   },
   {
-    path: "*",
-    component: PageNotFound,
-  },
-]
+    path: '*',
+    component: PageNotFound
+  }
+];

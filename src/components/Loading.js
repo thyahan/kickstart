@@ -1,13 +1,11 @@
-import React, { Component } from "react";
+import React from 'react';
 
-class Loading extends Component {
-  render() {
-    return (
-      <div className="wrap-loading">
-        <p>LOADING ...</p>
-      </div>
-    );
-  }
-}
+const Loading = () => {
+  return (
+    <div className="wrap-loading">
+      <p>LOADING ...</p>
+    </div>
+  );
+};
 
 export default Loading;
