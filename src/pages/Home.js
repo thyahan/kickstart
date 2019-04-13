@@ -1,31 +1,30 @@
-import React, { useReducer, useEffect } from 'react';
-import Header from '../components/Header';
-import Landing from '../components/Landing';
-import Footer from '../components/Footer';
+import React, { useState } from 'react';
 import withWrap from '../hocs/withWrap';
-import { initial, reducer } from '../reducers/user';
+import useUserDetail from '../hooks/useUserDetail';
 
-const Home = () => {
-  const [{ id, username }, dispatch] = useReducer(reducer, initial);
+const ViewUser = () => {
+  const [userId, setUserId] = useState(1);
+  const user = useUserDetail(userId);
 
-  useEffect(() => {
-    dispatch({
-      type: 'FETCH_USER_SUCCESS',
-      payload: {
-        id: 21,
-        username: 'meitoey'
-      }
-    });
-  }, []);
+  const handleOnSwitchUser = () => {
+    setUserId(userId + 1);
+  };
 
   return (
-    <div className="wrap-home">
-      <Header />
-      <span>{`${id}: ${username}`}</span>
-      <Landing />
-      <Footer />
+    <div className="wrap-hook-page">
+      <span>{`${user.id}: ${user.username}`}</span>
+      <button onClick={handleOnSwitchUser}>Switch User</button>
+      <hr />
     </div>
   );
 };
 
-export default withWrap(Home);
+const HookPage = () => {
+  return (
+    <div>
+      <ViewUser />
+    </div>
+  );
+};
+
+export default withWrap(HookPage);

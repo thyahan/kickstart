@@ -1,5 +1,6 @@
 import Home from '../pages/Home';
 import PageNotFound from '../pages/PageNotFound';
+import Landing from '../pages/Landing';
 
 export default [
   {
@@ -10,6 +11,10 @@ export default [
   {
     path: '/home',
     component: Home
+  },
+  {
+    path: '/hook',
+    component: Landing
   },
   {
     path: '*',
