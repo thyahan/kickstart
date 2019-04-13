@@ -1,20 +1,29 @@
 import React from 'react';
+import withWrap from '../hocs/withWrap';
+import landingImage from '../assets/images/landing-bg.jpg';
 
-const imageSrc =
-  'https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
-const backgroundImage = `url(${imageSrc})`;
+const backgroundImage = `
+linear-gradient(
+  to right bottom,
+  rgba(126, 213, 111, 0.8),
+  rgba(40, 180, 131, 0.8)
+),
+url(${landingImage})
+`;
 
 const Landing = () => {
   return (
-    <div className="wrap-landing">
-      <h1>Welcom To Public Board</h1>
-      <div className="bg-img" style={{ backgroundImage }}>
-        <button type="submit" className="btn-landing">
-          Start Now
-        </button>
+    <>
+      <div
+        className="landing-bg-img"
+        alt="landing background"
+        style={{ backgroundImage }}
+      >
+        {/* <h1>Hola Kickstart</h1>
+        <p>Best place you ever been</p> */}
       </div>
-    </div>
+    </>
   );
 };
 
-export default Landing;
+export default withWrap(Landing);

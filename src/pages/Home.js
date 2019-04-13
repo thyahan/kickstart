@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Header from '../components/Header';
+import Landing from '../components/Landing';
 import withWrap from '../hocs/withWrap';
 
 const HookPage = () => {
   return (
-    <div>
-      This is home
-    </div>
+    <>
+      <Header />
+      <Landing />
+    </>
   );
 };
 
