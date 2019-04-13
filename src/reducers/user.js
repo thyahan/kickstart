@@ -1,13 +1,13 @@
-export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
+import { FETCH_USER_SUCCESS } from '../actions/user';
 
-export const initial = {
+const initialState = {
   id: '',
   username: ''
 };
 
-export const reducer = (state, { type, user }) => {
+export default (state = initialState, { type, user }) => {
   switch (type) {
-    case 'FETCH_USER_SUCCESS':
+    case FETCH_USER_SUCCESS:
       return { ...user };
     default:
       return state;

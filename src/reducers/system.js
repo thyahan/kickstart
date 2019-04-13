@@ -1,17 +1,19 @@
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+import { LOGIN_SUCCESS, LOGOUT_SUCCESS, INITIAL_APP } from '../actions/system';
 
-export const initialState = {
-  token: '12',
-  userId: '13'
+const initialState = {
+  token: '',
+  userId: '',
+  authen: false
 };
 
-export const reducer = (state, { type, session }) => {
-  switch (type) {
+export default (state = initialState, action) => {
+  switch (action.type) {
     case LOGIN_SUCCESS:
-      return { ...session };
+      return { ...state, ...action.session };
     case LOGOUT_SUCCESS:
       return { token: '', userId: '' };
+    case INITIAL_APP:
+      return { ...state, ...action.data };
     default:
       return state;
   }

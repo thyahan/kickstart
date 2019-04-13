@@ -1,24 +1,29 @@
-import React, { useReducer} from 'react';
+import React, { useEffect } from 'react';
 import Router from './router';
-import SystemContext from './SystemContext';
-import { reducer, initialState } from './reducers/system';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { initialApp } from './actions/system';
 import './style/index.scss';
 
-const SystemContextProvider = ({ children }) => {
-  const contextValue = useReducer(reducer, initialState);
-  return (
-    <SystemContext.Provider value={contextValue}>
-      {children}
-    </SystemContext.Provider>
-  );
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators({ initialApp }, dispatch)
+  };
 };
 
-const App = () => {
-  return (
-    <SystemContextProvider>
-      <Router />
-    </SystemContextProvider>
-  );
+const mapStateToProps = ({ system }) => {
+  return system;
 };
 
-export default App;
+const App = ({ actions, token }) => {
+  useEffect(() => {
+    actions.initialApp();
+  }, [token]);
+
+  return <Router />;
+};
+
+export default connect(
+  () => ({}),
+  mapDispatchToProps
+)(App);
