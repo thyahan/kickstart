@@ -4,6 +4,7 @@ const app = express();
 const fs = require('fs');
 const path = require('path');
 const replace = require('stream-replace');
+
 const port = 8080;
 
 app.use(
@@ -26,5 +27,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`Server start at ${port}`);
 });

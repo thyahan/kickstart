@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Router from './router';
 import { initialApp } from './actions/system';
-import './style/index.scss';
+import './styles/index.scss';
 
 const mapStateToProps = ({ system }) => {
   return system;
