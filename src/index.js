@@ -6,7 +6,8 @@ import 'whatwg-fetch';
 import App from './App';
 import configureStore from './store/configureStore';
 
-const initialState = typeof window.initialState === 'object' ? window.initialState : {};
+const initialState =
+  typeof window.initialState === 'object' ? window.initialState : {};
 const store = configureStore(initialState);
 
 ReactDOM.render(

@@ -6,19 +6,19 @@ const headers = {
 const fetchWithResponse = (url, options) => {
   return new Promise((resolve, reject) => {
     fetch(url, { headers, ...options })
-      .then((response) => {
+      .then(response => {
         return response.json();
       })
-      .then((res) => {
+      .then(res => {
         resolve(res);
       })
-      .catch((err) => {
+      .catch(err => {
         reject(err);
       });
   });
 };
 
-const GET = (url) => {
+const GET = url => {
   return fetchWithResponse(url);
 };
 
@@ -30,7 +30,7 @@ const PUT = (url, body) => {
   return fetchWithResponse(url, { method: 'PUT', body: JSON.stringify(body) });
 };
 
-const DELETE = (url) => {
+const DELETE = url => {
   return fetchWithResponse(url, { method: 'DELETE' });
 };
 
