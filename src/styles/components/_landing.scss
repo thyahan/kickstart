@@ -1,0 +1,8 @@
+.landing-bg-img {
+  width: 100vw;
+  height: 85vh;
+  margin: 0 calc(-50vw + 50%);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}

@@ -11,7 +11,7 @@ export default userId => {
 
   useEffect(() => {
     callGetUser();
-  }, [userId]);
+  });
 
   return user;
 };
